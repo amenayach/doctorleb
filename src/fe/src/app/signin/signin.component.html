@@ -1,0 +1,23 @@
+<div class="signin-slide-down"></div>
+<div fxLayout="row" fxLayoutAlign="center center">
+  <div class="signin-container" fxLayout="column" fxFlex="300px">
+    <mat-form-field>
+      <input matInput placeholder="اسم المستخدم" #username>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="كلمة المرور" type="password" #password
+             (keydown)="onKeydown($event, username.value, password.value)">
+    </mat-form-field>
+
+    <p class="login-failed" *ngIf="loginFailed">اسم المستخدم او كلمة المرور غير صحيحة</p>
+
+    <div class="signin-footer">
+      <button mat-raised-button color="primary" (click)="signMeIn(username.value, password.value)">دخول</button>
+      <button mat-raised-button (click)="closeMe()">اغلاق</button>
+    </div>
+    <div fxLayoutAlign="end">
+      <span class="not-registered">غير مسجل؟</span>&nbsp;<a routerLink="/signup" class="link">تسجل الآن</a>
+    </div>
+  </div>
+</div>

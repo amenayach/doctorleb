@@ -1,0 +1,21 @@
+.btn-close {
+    cursor: pointer;
+}
+
+.doctor-title {
+  font-size: x-large;
+}
+
+.rank-details {
+  font-size: medium;
+  line-height: 52px;
+  display: inline-block;
+  height: 52px;
+  color: gray;
+  vertical-align: super;
+}
+
+.doctor-photo {
+  width: 56px;
+  float: right;
+}

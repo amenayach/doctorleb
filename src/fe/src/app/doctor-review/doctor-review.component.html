@@ -1,0 +1,17 @@
+<div class="doc-review-holder">
+  <div>
+    <p class="title-msg">تقيمك</p>
+    <span class="approval-msg">ان التقييم الجديد او المحدث لايظهر في الموقع الا بعد موافقة الادارة</span>
+  </div>
+  <div>
+    <app-stars [readOnly]="false" [rating]="selectedResult.rank" (rate)="onRate($event)"></app-stars>
+  </div>
+  <mat-form-field>
+    <textarea matInput placeholder="" [(ngModel)]="selectedResult.description" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="10">
+      </textarea>
+  </mat-form-field>
+  <div class="doc-review-holder-footer">
+    <button mat-raised-button (click)="onNoClick()">اغلاق</button>
+    <button mat-raised-button color="primary" (click)="save()">حفظ</button>
+  </div>
+</div>

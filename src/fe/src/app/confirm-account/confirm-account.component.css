@@ -1,0 +1,26 @@
+.signin-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.signin-container > * {
+  width: 100%;
+}
+
+.signin-footer {
+  text-align: end;
+}
+
+.signin-slide-down {
+  margin-top: 100px;
+}
+
+.link {
+  color: #3f51b5;
+  text-decoration: none;
+}
+
+.signin-validater {
+  color: #ff0000;
+  font-size: 14px;
+}

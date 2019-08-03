@@ -1,0 +1,18 @@
+.btn-close {
+    cursor: pointer;
+}
+
+.rank-span {
+    font-size: 19px;
+}
+
+.doctor-title {
+    font-size: 20px;
+    line-height: 56px;
+    float: right;
+}
+
+.doctor-photo {
+    width: 56px;
+    float: right;
+}

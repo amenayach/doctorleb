@@ -1,0 +1,10 @@
+﻿CREATE TABLE [dbo].[DoctorAddress]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY, 
+    [RegionId] UNIQUEIDENTIFIER NOT NULL, 
+	[DoctorId] UNIQUEIDENTIFIER NOT NULL, 
+    [Address] NVARCHAR(300) NOT NULL, 
+    [Type] SMALLINT NOT NULL,
+	CONSTRAINT [FK_DoctorAddress_Doctor] FOREIGN KEY ([DoctorId]) REFERENCES [Doctor]([Id]),
+	CONSTRAINT [FK_DoctorAddress_Region] FOREIGN KEY ([RegionId]) REFERENCES [Region]([Id])
+)

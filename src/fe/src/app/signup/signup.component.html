@@ -1,0 +1,59 @@
+<div class="signin-slide-down"></div>
+<div fxLayout="row" fxLayoutAlign="center center">
+  <div class="signin-container" fxLayout="column" fxFlex="300px">
+    <mat-form-field>
+      <input matInput placeholder="اسم المستخدم *" #username>
+    </mat-form-field>
+    <div class="signin-validater" *ngIf="invalidUsername">
+      يجب استخدام الاحرف الاجنبية والارقام فقط
+    </div>
+    <mat-form-field>
+      <input matInput placeholder="رقم الجوال *, مثال 03123456" #mobile>
+    </mat-form-field>
+    <div class="signin-validater" *ngIf="invalidMobileFormat">
+      يرجى ادخال رقم جوال ليتم ارسال رمز التفعيل
+    </div>
+    <mat-form-field>
+      <input matInput placeholder="الاسم الاول *" #firstname>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="اسم الوالد *" #middlename>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="اسم العائلة *" #familyname>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="البريد الالكتروني" #email>
+    </mat-form-field>
+    <div class="signin-validater" *ngIf="invalidEmailFormat">
+      صيغة البريد الالكتروني غير صحيحة
+    </div>
+    <mat-form-field>
+      <input matInput placeholder="كلمة المرور *" type="password" #password
+             (keydown)="onKeydown($event, username.value, password.value, confirmPassword.value, mobile.value, firstname.value, middlename.value, familyname.value, email.value)">
+    </mat-form-field>
+    <div class="signin-validater" *ngIf="invalidPasswordFormat">
+      كلمة المرور يجب ان تتضمن ثمانية احرف على الاقل
+    </div>
+    <mat-form-field>
+      <input matInput placeholder="تأكيد كلمة المرور *" type="password" #confirmPassword
+             (keydown)="onKeydown($event, username.value, password.value, confirmPassword.value, mobile.value, firstname.value, middlename.value, familyname.value, email.value)">
+    </mat-form-field>
+    <div class="signin-validater" *ngIf="passwordNotMatching">
+      كلمة المرور غير متطابقة
+    </div>
+    <div class="signin-validater" *ngIf="fillRequiredFields">
+      يرجى ادخال جميع المعلومات الالزامية (*)
+    </div>
+    <div class="signin-footer">
+      <button mat-raised-button color="primary"
+              (click)="signMeUp(username.value, password.value, confirmPassword.value, mobile.value, firstname.value, middlename.value, familyname.value, email.value)">
+        تسجل
+      </button>
+      <button mat-raised-button (click)="closeMe()">اغلاق</button>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="center end">
+      <a routerLink="/signin" class="link">تسجيل الدخول</a>
+    </div>
+  </div>
+</div>

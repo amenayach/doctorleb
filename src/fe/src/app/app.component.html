@@ -1,0 +1,22 @@
+<mat-toolbar color="primary">
+  <nav fxLayout="row">
+    <a routerLink="/home" fxShow="false" fxShow.gt-sm="true" routerLinkActive="active">طبيبك</a>
+    <a routerLink="/ticket">تواصل معنا</a>
+  </nav>
+  <span class="fill-remaining-space"></span>
+  <span>
+    <a *ngIf="userInfo == null" routerLink="/signin">تسجيل الدخول</a>
+  </span>
+  <span *ngIf="userInfo != null">
+    <button mat-button [matMenuTriggerFor]="appMenu" class="account-circle">
+      <mat-icon>&#xE853;</mat-icon>
+    </button>
+    <mat-menu #appMenu="matMenu">
+      <span mat-menu-item> {{userInfo.userName}} </span>
+      <button mat-menu-item (click)="logout()"> تسجيل الخروج </button>
+    </mat-menu>
+  </span>
+</mat-toolbar>
+<div class="router-outlet">
+  <router-outlet></router-outlet>
+</div>

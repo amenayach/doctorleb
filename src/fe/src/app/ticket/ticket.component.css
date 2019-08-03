@@ -1,0 +1,16 @@
+.ticket-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .ticket-container > * {
+    width: 100%;
+  }
+
+  .ticket-footer {
+      text-align: end;
+  }
+
+  .ticket-slide-down {
+      margin-top: 100px;
+  }

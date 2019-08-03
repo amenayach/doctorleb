@@ -1,0 +1,27 @@
+.search-result-card {
+    cursor: pointer;
+    margin-bottom: 12px;
+}
+
+.search-result-card.mat-card:not([class*=mat-elevation-z]):hover {
+    box-shadow: 0 8px 26px 0 rgba(0,0,0,0.5), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.search-result-card.mat-card:not([class*=mat-elevation-z]) {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.rank-span {
+    font-size: 19px;
+}
+
+.doctor-title {
+    font-size: 20px;
+    line-height: 56px;
+    float: right;
+}
+
+.doctor-photo {
+    width: 56px;
+    float: right;
+}

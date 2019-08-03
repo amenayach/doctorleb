@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[Kaza]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY, 
+	[ProvinceId] UNIQUEIDENTIFIER NOT NULL, 
+    [NameAr] NVARCHAR(100) NOT NULL, 
+    [NameFo] NVARCHAR(100) NOT NULL,
+    CONSTRAINT [FK_Kaza_Province] FOREIGN KEY ([ProvinceId]) REFERENCES [Province]([Id])
+)

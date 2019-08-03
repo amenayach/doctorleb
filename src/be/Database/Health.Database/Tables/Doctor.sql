@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[Doctor]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY, 
+    [NameAr] NVARCHAR(150) NOT NULL, 
+    [NameFo] NVARCHAR(150) NOT NULL, 
+    [NumberOfReviewer] INT NOT NULL, 
+    [Rank] DECIMAL(3, 2) NOT NULL
+)

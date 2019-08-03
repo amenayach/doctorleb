@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[Speciality]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY, 
+    [NameAr] NVARCHAR(300) NOT NULL, 
+    [NameFr] NVARCHAR(300) NOT NULL, 
+    [NameEn] NVARCHAR(300) NOT NULL
+)

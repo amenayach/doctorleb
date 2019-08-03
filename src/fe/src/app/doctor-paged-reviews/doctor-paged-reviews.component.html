@@ -1,0 +1,83 @@
+<div id="docDetail" fxFlex="100%" *ngIf="doctorDetail != null && doctorDetail.doctorInfo != null">
+  <div fxLayout="column">
+    <div fxFlex="1%">
+      <mat-progress-bar mode="indeterminate" *ngIf="loadingDetail"></mat-progress-bar>
+    </div>
+    <div fxFlex="99%">
+      <mat-card class="search-result-card">
+        <div fxFlexLayout="row">
+          <div fxFlex="97%">
+            <mat-card-header>
+              <mat-card-title>
+                <img class="doctor-photo" src="assets/img/doctor.png" alt="">
+                <span class="doctor-title">{{ doctorDetail?.doctorInfo?.nameAr }}</span>
+              </mat-card-title>
+            </mat-card-header>
+          </div>
+          <div fxFlex="3%" class="btn-close">
+            <a (click)="goBack()">
+              <mat-icon>&#xE31B;</mat-icon>
+            </a>
+          </div>
+        </div>
+        <mat-card-content>
+          <div fxFlexLayout="column">
+            <div fxFlex="90%">
+              <app-stars [readOnly]="true" [rating]="doctorDetail.doctorInfo.rank"></app-stars>
+              <span class="rank-details">
+                {{doctorDetail.doctorInfo.rank}} |
+                {{doctorDetail.doctorInfo.numberOfReviewer}} تقييم
+              </span>
+            </div>
+            <div fxFlex="10%">
+              <span>&nbsp;</span>
+              <button *ngIf="loggedIn" mat-raised-button (click)="openDialog()">تقييم</button>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <mat-card class="search-result-card" *ngFor="let rec of doctorDetail.doctorAddressesInfo;let i = index">
+    <mat-card-header>
+      <mat-card-title *ngIf="i === 0">العناوين</mat-card-title>
+      <mat-card-subtitle>
+        {{ rec.address + ' | ' + rec.region?.nameAr }}
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div fxFlexLayout="column" *ngFor="let phone of rec.phonebooks;let j = index">
+        <div fxFlex="100%">
+          {{ phone.phoneNumber }}
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="search-result-card" *ngFor="let rec of doctorDetail.specialities;let i = index">
+    <mat-card-header>
+      <mat-card-title *ngIf="i === 0">الاختصاصات</mat-card-title>
+      <mat-card-subtitle>
+        {{ rec.nameAr }}
+      </mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+  <mat-card class="search-result-card" *ngFor="let rec of (doctorReviews || []);let i = index">
+    <mat-card-header>
+      <mat-card-title *ngIf="i === 0">التقييمات</mat-card-title>
+      <mat-card-subtitle>
+        {{ rec.reviewerName }}
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div fxFlexLayout="column">
+        {{ rec.description }}
+      </div>
+      <div fxFlexLayout="column">
+        <app-stars [readOnly]="true" [rating]="rec.rank"></app-stars>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <div fxLayout="column" *ngIf="hasMore === true">
+    <button mat-raised-button (click)="loadReviews()">المزيد</button>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+.doc-review-holder {
+    direction:rtl;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .doc-review-holder > * {
+    width: 100%;
+  }
+
+  .doc-review-holder-footer {
+    direction: ltr;
+  }
+
+  .approval-msg {
+    font-size: 9px;
+    color: #888888;
+  }
+
+  .title-msg {
+    margin-bottom: 0;
+  }

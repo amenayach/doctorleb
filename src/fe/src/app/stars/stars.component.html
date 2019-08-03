@@ -1,0 +1,9 @@
+<div class="stars">
+    <app-star
+      *ngFor="let star of stars"
+      [active]="star <= _rating"
+      (rate)="onRate($event)"
+      [readOnly]="readOnly"
+      [position]="star">
+    </app-star>
+  </div>

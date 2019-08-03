@@ -1,0 +1,28 @@
+<div class="ticket-slide-down"></div>
+<div fxLayout="row" fxLayoutAlign="center center">
+  <div class="ticket-container" fxLayout="column" fxFlex="300px">
+    <mat-form-field>
+      <input matInput placeholder="الاسم" #name>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="الهاتف، مثال: 03XXXXXX" #phone pattern="[0-9]+">
+    </mat-form-field>
+    <span *ngIf="!isValidPhone(phone.value)" style="color:red">
+        الهاتف، مثال: 03XXXXXX
+    </span>
+    <mat-form-field *ngIf="!loggedIn">
+      <input matInput placeholder="البريد الالكتروني" [(ngModel)]="userEmail">
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput placeholder="التفصيل" [(ngModel)]="desc" matTextareaAutosize matAutosizeMinRows="5" matAutosizeMaxRows="10">
+      </textarea>
+    </mat-form-field>
+
+    <div class="ticket-footer">
+      <button mat-raised-button color="primary" 
+        [disabled]="!isFormValid(name.value, phone.value) && !disableSave" 
+        (click)="save(name.value, phone.value)">ارسال</button>
+      <button mat-raised-button routerLink="/">العودة الى الرئيسية</button>
+    </div>
+  </div>
+</div>

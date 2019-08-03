@@ -1,0 +1,56 @@
+<div class="containerX">
+  <div class="container" fxLayout.xs="column">
+    <div [fxFlex]="getLeftWidth()" fxFlex.lt-lg="0"></div>
+    <div fxFlex="70%" fxFlex.lt-lg="100%" fxLayout="column">
+      <div fxFlex="20px" [style.display]="hideLeftSpace()"></div>
+      <div fxLayoutAlign="center center" [style.display]="hideLeftSpace()">
+        <img src="assets/img/dc01.png" alt="">
+      </div>
+      <div fxFlex="20px"></div>
+      <div fxLayoutAlign="center center">
+        <mat-form-field [fxFlex]="getSearchWidth()" fxFlex.lt-lg="100%">
+          <input matInput (keyup)="onKey($event)" [(ngModel)]="keyword" placeholder="ابحث عن طبيب" aria-label="" [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let rec of redux.results" [value]="rec.nameAr">
+              <span>{{ rec.nameAr }}</span>
+            </mat-option>
+          </mat-autocomplete>
+          <mat-progress-bar *ngIf="loadingSearch" mode="indeterminate"></mat-progress-bar>
+        </mat-form-field>
+      </div>
+      <div fxLayoutAlign="center center" class="adv-search-box">
+        <button mat-raised-button color="primary" (click)="searchButton()">بحث</button>&nbsp;
+        <button mat-raised-button color="primary" *ngIf="!showAdvancedSearch" (click)="showAdvSearch()">بحث متقدم</button>
+        <mat-form-field *ngIf="showAdvancedSearch">
+          <mat-select placeholder="الاختصاصات" [(value)]="selectedSpcId">
+            <mat-option *ngFor="let spc of specialties" [value]="spc.id">
+              {{ spc.nameAr }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="noresult" *ngIf="redux.doctors?.length === 0 && noResult">
+        <span>لا شيء للعرض</span>
+      </div>
+      <div>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-9125674534606182"
+             data-ad-slot="6626427185"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <app-search-result (click)="cardClicked(rec, 'doc' + rec.id)" [id]="'doc' + rec.id" *ngFor="let rec of redux.doctors" [doctor]="rec"></app-search-result>
+      </div>
+      <div fxLayout="column" *ngIf="loadingSearch === true">
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      </div>
+      <div fxLayout="column" *ngIf="hasMore === true && redux.doctors && redux.doctors.length > 0">
+        <button mat-raised-button (click)="loadMore()">المزيد</button>
+      </div>
+    </div>
+    <div [fxFlex]="getRightWidth()" [fxFlex.lt-lg]="0">
+      <app-doctor-details id="docDetail" [selectedResult]="selectedResult" [doctorDetail]="doctorDetail" [loggedIn]="loggedIn"
+        class="doc-details" [loadingDetail]="loadingDetail"></app-doctor-details>
+    </div>
+  </div>
+</div>

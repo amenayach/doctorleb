@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
+@import "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css";
+@font-face {
+    font-family: "kufi";
+    src: url("./assets/DroidKufi-Bold.woff2") format('woff2');
+}
+
+* {
+    font-family: 'kufi';
+}
+
+body {
+    margin: 0;
+}
+
+.search-box {
+    width: 100%;
+}
+
+.doc-details {
+    position:absolute;
+    background-color: #ccc;
+    border-right: solid 6px #444;
+}

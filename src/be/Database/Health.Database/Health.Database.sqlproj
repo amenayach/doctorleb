@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>Health.Database</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{d4e1bef5-ade0-4c22-99fa-b3242d64ee94}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>Health.Database</RootNamespace>
+    <AssemblyName>Health.Database</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="Tables" />
+    <Folder Include="StoredProcedures" />
+    <Folder Include="Functions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Tables\ContactUsTicket.sql" />
+    <Build Include="Tables\Doctor.sql" />
+    <Build Include="Tables\DoctorAddress.sql" />
+    <Build Include="Tables\DoctorReview.sql" />
+    <Build Include="Tables\DoctorSpeciality.sql" />
+    <Build Include="Tables\Phonebook.sql" />
+    <Build Include="Tables\Region.sql" />
+    <Build Include="Tables\Speciality.sql" />
+    <Build Include="StoredProcedures\AddOrUpdateReview.sql" />
+    <Build Include="StoredProcedures\GetDoctor.sql" />
+    <Build Include="StoredProcedures\GetDoctorsBySpeciality.sql" />
+    <Build Include="StoredProcedures\GetRegions.sql" />
+    <Build Include="StoredProcedures\GetSpecialities.sql" />
+    <Build Include="StoredProcedures\ApproveReview.sql" />
+    <Build Include="StoredProcedures\GetReviewsByDoctor.sql" />
+    <Build Include="StoredProcedures\AddContactUsTicket.sql" />
+    <Build Include="StoredProcedures\GetDoctorAddresses.sql" />
+    <Build Include="StoredProcedures\GetDoctorPhones.sql" />
+    <Build Include="Tables\Kaza.sql" />
+    <Build Include="Tables\Province.sql" />
+    <Build Include="StoredProcedures\GetRegionsByKaza.sql" />
+    <Build Include="StoredProcedures\GetKazas.sql" />
+    <Build Include="StoredProcedures\GetKazasByProvince.sql" />
+    <Build Include="StoredProcedures\GetProvinces.sql" />
+    <Build Include="Functions\SplitString.sql" />
+    <Build Include="StoredProcedures\GetSearchAutoComplete.sql" />
+    <Build Include="StoredProcedures\GetProvince.sql" />
+    <Build Include="StoredProcedures\GetKaza.sql" />
+    <Build Include="StoredProcedures\GetRegion.sql" />
+    <Build Include="StoredProcedures\SearchDoctor.sql" />
+    <Build Include="StoredProcedures\GetPagedReviewsByDoctor.sql" />
+    <Build Include="StoredProcedures\GetDoctorSpecialities.sql" />
+    <Build Include="Tables\UserActivation.sql" />
+    <Build Include="StoredProcedures\AddUserActivation.sql" />
+    <Build Include="StoredProcedures\GetUserActivation.sql" />
+    <Build Include="StoredProcedures\UpdateUserActivation.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DoctorsSample.sql" />
+    <None Include="IdentityTables.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="Health.Database.refactorlog" />
+  </ItemGroup>
+</Project>

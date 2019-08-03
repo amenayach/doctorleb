@@ -1,0 +1,9 @@
+﻿CREATE TABLE [dbo].[ContactUsTicket]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY, 
+    [Name] NVARCHAR(100) NULL, 
+    [PhoneNumber] NVARCHAR(50) NULL, 
+    [Email] NVARCHAR(50) NULL, 
+    [Description] NVARCHAR(500) NOT NULL, 
+    [CreatedOn] DATETIME NOT NULL DEFAULT GETDATE()
+)

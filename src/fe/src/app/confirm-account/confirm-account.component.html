@@ -1,0 +1,18 @@
+<div class="signin-slide-down"></div>
+<div fxLayout="row" fxLayoutAlign="center center">
+  <div class="signin-container" fxLayout="column" fxFlex="300px">
+    <mat-form-field>
+      <input matInput placeholder="رمز التفعيل" #code>
+    </mat-form-field>
+    <div class="signin-validater" *ngIf="confirmationFailed">
+      حدث خطأ يرجى التأكد من الرمز المدخل
+    </div>
+    <div class="signin-footer">
+      <button mat-raised-button color="primary" (click)="sendConfirmation(code.value)">موافق</button>
+      <button mat-raised-button (click)="closeMe()">اغلاق</button>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="center end">
+      <a routerLink="/signin" class="link">تسجيل الدخول</a>
+    </div>
+  </div>
+</div>

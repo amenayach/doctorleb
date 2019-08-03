@@ -1,0 +1,46 @@
+﻿{
+  "components": [
+    {
+      "type": "Health.Doctors.Sql.DoctorStore, Health.Doctors.Sql",
+      "services": [
+        {
+          "type": "Health.Doctors.IDoctorStore, Health.Doctors"
+        }
+      ]
+    },
+    {
+      "type": "Health.Doctors.DoctorManager, Health.Doctors",
+      "services": [
+        {
+          "type": "Health.Doctors.DoctorManager, Health.Doctors"
+        }
+      ]
+    },
+    {
+      "type": "atDoctor.DoctorManager, atDoctor",
+      "services": [
+        {
+          "type": "atDoctor.DoctorManager, atDoctor"
+        }
+      ]
+    },
+    {
+      "type": "Health.Doctors.Caching.InMemoryCacheManager, Health.Doctors",
+      "services": [
+        {
+          "type": "Health.Doctors.Caching.ICacheManager, Health.Doctors"
+        }
+      ],
+      "instanceScope": "single-instance"
+    },
+    {
+      "type": "Health.Configuration.Sms.GlobalSmsSender, Health.Configuration",
+      "services": [
+        {
+          "type": "Health.Configuration.Sms.ISmsSender, Health.Configuration"
+        }
+      ],
+      "instanceScope": "single-instance"
+    }
+  ]
+}

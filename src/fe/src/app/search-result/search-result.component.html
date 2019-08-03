@@ -1,0 +1,18 @@
+<mat-card class="search-result-card">
+  <mat-card-header>
+    <mat-card-title>
+      <img class="doctor-photo" src="assets/img/doctor.png" alt="">
+      <span class="doctor-title">{{ doctor.nameAr }}</span>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div fxFlexLayout="row">
+      <div fxFlex="80%">
+        <app-stars [readOnly]="true" [rating]="doctor.rank"></app-stars>
+        <span class="rank-span">{{doctor.rank}} | {{doctor.numberOfReviewer}} تقييم</span>
+      </div>
+      <div fxFlex="20%">
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
